@@ -2,15 +2,16 @@ import { Controller } from '@nestjs/common'
 import { MessagePattern } from '@nestjs/microservices'
 
 import { UpdateUser, User } from '@app/core/user'
+import { from, Observable } from 'rxjs'
 
 @Controller()
 export class UserProcessorController {
   @MessagePattern('create')
-  createUser(user: User): User {
+  createUser(user: User): User | Observable<number> {
     console.log('----------------------------------------------')
     console.log('creating user', user)
     console.log('----------------------------------------------')
-    return user
+    return from([1, 2, 3])
   }
 
   @MessagePattern('update')
