@@ -1,0 +1,57 @@
+{
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/mono/src",
+  "monorepo": true,
+  "root": "apps/mono",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/mono/tsconfig.app.json"
+  },
+  "projects": {
+    "mono": {
+      "type": "application",
+      "root": "apps/mono",
+      "entryFile": "main",
+      "sourceRoot": "apps/mono/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/mono/tsconfig.app.json"
+      }
+    },
+    "protwo": {
+      "type": "application",
+      "root": "apps/protwo",
+      "entryFile": "main",
+      "sourceRoot": "apps/protwo/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/protwo/tsconfig.app.json"
+      }
+    },
+    "core": {
+      "type": "library",
+      "root": "libs/core",
+      "entryFile": "index",
+      "sourceRoot": "libs/core/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/core/tsconfig.lib.json"
+      }
+    },
+    "models": {
+      "type": "library",
+      "root": "libs/models",
+      "entryFile": "index",
+      "sourceRoot": "libs/models/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/models/tsconfig.lib.json"
+      }
+    },
+    "user-processor": {
+      "type": "application",
+      "root": "apps/user-processor",
+      "entryFile": "main",
+      "sourceRoot": "apps/user-processor/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/user-processor/tsconfig.app.json"
+      }
+    }
+  }
+}
