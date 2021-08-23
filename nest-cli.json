@@ -52,6 +52,15 @@
       "compilerOptions": {
         "tsConfigPath": "apps/user-processor/tsconfig.app.json"
       }
+    },
+    "ticktick": {
+      "type": "application",
+      "root": "apps/ticktick",
+      "entryFile": "main",
+      "sourceRoot": "apps/ticktick/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/ticktick/tsconfig.app.json"
+      }
     }
   }
 }

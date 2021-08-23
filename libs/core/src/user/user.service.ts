@@ -9,10 +9,10 @@ import { User } from './user.model'
 export class UserService {
   constructor(@Inject('USER_SERVICE') private client: ClientProxy) {}
 
-  createUser(stupid?: boolean): Observable<User> {
+  createUser(email?: string, stupid?: boolean): Observable<User> {
     const user: User = {
       name: 'Test',
-      email: 'test@test.com',
+      email: email || 'test@test.com',
       dob: new Date(),
       stupid: stupid || false,
     }

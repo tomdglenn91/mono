@@ -1,5 +1,5 @@
 import { UserService, User } from '@app/core/user'
-import { Controller, Get, Post } from '@nestjs/common'
+import { Controller, Get, Post, Query } from '@nestjs/common'
 import { filter, Observable, scan, tap } from 'rxjs'
 
 @Controller()
@@ -12,10 +12,11 @@ export class AppController {
   }
 
   @Get('create')
-  create(): Observable<User> {
-    return this.userService.createUser(true).pipe(
-      scan((acc: any, val: any) => acc + val, 0),
-      tap((v) => console.log('got value', v)),
-    )
+  create(@Query('email') email: string): Observable<User> {
+    console.log('retrieved request to create user')
+
+    return this.userService
+      .createUser(email, true)
+      .pipe(tap(() => console.log('request returned')))
   }
 }

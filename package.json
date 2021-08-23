@@ -13,7 +13,7 @@
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
-    "start:all": "concurrently -n mono,protwo,user-processor -c red,cyan,yellow \"npm:start:dev mono\" \"npm:start:dev protwo\" \"npm:start:dev user-processor\"",
+    "start:all": "concurrently -n mono,protwo,user-processor,ticktick -c red,cyan,yellow,magenta \"npm:start:dev mono\" \"npm:start:dev protwo\" \"npm:start:dev user-processor\" \"npm:start:dev ticktick\"",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",

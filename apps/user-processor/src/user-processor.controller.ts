@@ -1,17 +1,24 @@
-import { Controller } from '@nestjs/common'
-import { MessagePattern } from '@nestjs/microservices'
+import { Controller, Inject } from '@nestjs/common'
+import { ClientProxy, MessagePattern } from '@nestjs/microservices'
 
 import { UpdateUser, User } from '@app/core/user'
-import { from, Observable } from 'rxjs'
+import { tap } from 'rxjs'
 
 @Controller()
 export class UserProcessorController {
+  constructor(
+    @Inject('TICK_SERVICE') private readonly tickService: ClientProxy,
+  ) {}
+
   @MessagePattern('create')
-  createUser(user: User): User | Observable<number> {
+  createUser(user: User): User {
     console.log('----------------------------------------------')
     console.log('creating user', user)
     console.log('----------------------------------------------')
-    return from([1, 2, 3])
+
+    this.tickService.emit('process', user)
+
+    return user
   }
 
   @MessagePattern('update')
